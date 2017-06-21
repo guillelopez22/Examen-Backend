@@ -46,6 +46,19 @@ exports.getUsuarioUsername = {
     });
   }
 }
+exports.getUsuarioAprendidos = {
+  handler : function(request, reply){
+    usuario.find({'aprendidos' : request.params.aprendidos}, function(err, Usuarios){
+      if(!err && Usuarios){
+        return reply(Usuarios);
+      }else if(!err){
+        return reply(boom.notFound());
+      }else if(err){
+        return reply(boom.wrap(err, 'Usuario not found'));
+      }
+    });
+  }
+}
 exports.modifyUsuario = {
   handler: function(request, reply){
     usuario.update(

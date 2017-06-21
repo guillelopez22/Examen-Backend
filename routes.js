@@ -36,7 +36,7 @@ exports.endpoints = [
 			method: 'GET',
 			path: '/usuarios/aprendidos/{_id}',
 			config: usuariosController.getUsuarioAprendidos
- 	}
+ 	},
  	{
  			method: 'PUT',
  			path: '/usuarios/update/{_id}',
@@ -76,9 +76,9 @@ exports.endpoints = [
  	},
  	{
 			method: 'GET',
-			path: '/hechizos/searchbyDificultad/{tiempo_aprendizaje}',
-			config: hechizosController.getHechizoDificultad
- 	}
+			path: '/hechizos/searchbyTiempo_Aprendizaje/{tiempo_aprendizaje}',
+			config: hechizosController.getHechizoTiempo
+ 	},
  	{
  			method: 'PUT',
  			path: '/hechizos/update/{_id}',

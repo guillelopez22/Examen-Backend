@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var HechizoSchema = new mongoose.Schema({
+var HechizosSchema = new mongoose.Schema({
   nombre : String,
   dificultad : String,
   tiempo_aprendizaje : Number

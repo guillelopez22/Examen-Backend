@@ -1,4 +1,4 @@
-var hechizo = require('../schemas/hechizo.js');
+var hechizo = require('../schemas/hechizos.js');
 var mongoose = require('mongoose');
 
 exports.getHechizos = {
@@ -7,7 +7,7 @@ exports.getHechizos = {
     reply(hechizos);
   }
 }
-exports.getHechizoId = {
+exports.getHechizoId = {  
   handler : function(request, reply){
     hechizo.findOne({'_id' : request.params._id}, function(err, Hechizo){
       if(!err && Hechizo){
@@ -36,6 +36,19 @@ exports.getHechizoName = {
 exports.getHechizoDificultad = {
   handler : function(request, reply){
     hechizo.find({'dificultad' : request.params.dificultad}, function(err, Hechizos){
+      if(!err && Hechizos){
+        return reply(Hechizos);
+      }else if(!err){
+        return reply(boom.notFound());
+      }else if(err){
+        return reply(boom.wrap(err, 'Hechizo not found'));
+      }
+    });
+  }
+}
+exports.getHechizoTiempo = {
+  handler : function(request, reply){
+    hechizo.find({'tiempo_aprendizaje' : request.params.tiempo_aprendizaje}, function(err, Hechizos){
       if(!err && Hechizos){
         return reply(Hechizos);
       }else if(!err){
